@@ -54,7 +54,11 @@ points.push({
             console.log("Points de calage :", pointsCalage);
 
         }
-
+alert(
+"Chargement réussi : "
++ pointsCalage.length
++ " points communs"
+);
 
         if(type === "transformation"){
 
