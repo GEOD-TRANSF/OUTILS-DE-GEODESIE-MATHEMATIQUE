@@ -360,7 +360,77 @@ Effacer
 </div>
 
 </section>
+<script>
 
+function calculHelmert(){
+
+let lignes=document
+.getElementById("donneesHelmert")
+.value.trim()
+.split("\n");
+
+
+let A=[];
+let B=[];
+
+
+for(let i=0;i<lignes.length;i++){
+
+let v=lignes[i]
+.trim()
+.split(/\s+/)
+.map(Number);
+
+
+A.push([v[0],v[1],v[2]]);
+B.push([v[3],v[4],v[5]]);
+
+}
+
+
+// Calcul des différences moyennes
+let dX=0;
+let dY=0;
+let dZ=0;
+
+
+for(let i=0;i<A.length;i++){
+
+dX+=B[i][0]-A[i][0];
+dY+=B[i][1]-A[i][1];
+dZ+=B[i][2]-A[i][2];
+
+}
+
+
+dX/=A.length;
+dY/=A.length;
+dZ/=A.length;
+
+
+// Affichage provisoire
+// (la version suivante intégrera la résolution LS complète)
+
+let txt="PARAMETRES HELMERT 7\n";
+txt+="======================\n\n";
+
+txt+="TX = "+dX.toFixed(4)+" m\n";
+txt+="TY = "+dY.toFixed(4)+" m\n";
+txt+="TZ = "+dZ.toFixed(4)+" m\n\n";
+
+txt+="RX = calcul en cours\n";
+txt+="RY = calcul en cours\n";
+txt+="RZ = calcul en cours\n";
+txt+="m  = calcul en cours\n";
+
+
+document
+.getElementById("resultatHelmert")
+.innerHTML=txt;
+
+}
+
+</script>
 </body>
 </html>
 <section class="card">
