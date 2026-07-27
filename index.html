@@ -1,80 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEO_TRANS</title>
 
-<style>
+<title>GEO_TRANS - Geodetic Coordinate Transformation Software</title>
 
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f8fc;
-}
-
-header{
-    background:#004c99;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
-
-header img{
-    width:180px;
-    margin-bottom:10px;
-}
-
-h1{
-    margin:10px;
-    font-size:42px;
-}
-
-h2{
-    color:#004c99;
-}
-
-nav{
-    background:#0066cc;
-    padding:15px;
-    text-align:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:20px;
-    font-weight:bold;
-    font-size:18px;
-}
-
-section{
-    width:90%;
-    margin:auto;
-    margin-top:40px;
-    text-align:center;
-}
-
-.box{
-    background:white;
-    border-radius:10px;
-    padding:30px;
-    box-shadow:0px 0px 15px rgba(0,0,0,0.15);
-}
-
-footer{
-    margin-top:50px;
-    background:#003366;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+
+<!-- ===================================================== -->
+<!-- EN-TÊTE -->
+<!-- ===================================================== -->
 
 <header>
 
@@ -82,45 +24,70 @@ footer{
 
 <h1>GEO_TRANS</h1>
 
-<h3>Geodetic Coordinate Transformation Software</h3>
+<h2>Geodetic Coordinate Transformation Software</h2>
+
+<div class="signature">
+
+<strong>Développé par</strong><br><br>
+
+<strong>Hebib Taibi</strong><br>
+
+ENSGTS<br>
+
+École Nationale Supérieure des Sciences Géodésiques<br>
+et des Techniques Spatiales
+
+</div>
 
 </header>
+
+<!-- ===================================================== -->
+<!-- MENU -->
+<!-- ===================================================== -->
 
 <nav>
 
 <a href="#">Accueil</a>
 
+<a href="#">Présentation</a>
+
 <a href="#">Modules</a>
 
 <a href="#">Documentation</a>
 
-<a href="#">Téléchargement</a>
+<a href="#">Téléchargements</a>
+
+<a href="#">Galerie</a>
 
 <a href="#">Contact</a>
 
 </nav>
 
+<!-- ===================================================== -->
+<!-- PRESENTATION -->
+<!-- ===================================================== -->
+
 <section>
 
 <div class="box">
 
-<h2>Bienvenue</h2>
+<h2>Bienvenue sur GEO_TRANS</h2>
 
 <p>
 
-Bienvenue sur le portail officiel de <b>GEO_TRANS</b>.
+GEO_TRANS est une plateforme scientifique francophone dédiée à la géodésie, aux
+transformations de coordonnées, aux projections cartographiques et aux calculs
+géodésiques.
 
 </p>
 
-<p>
-
-Bibliothèque scientifique dédiée aux calculs de géodésie, aux transformations de coordonnées et aux projections cartographiques.
-
-</p>
+<br>
 
 <p>
 
-Helmert • Molodensky • Molodensky-Badekas • UTM • Lambert • Bonne • Vincenty • GNSS • Topographie
+Le projet rassemble une bibliothèque de programmes GNU Octave accompagnés
+d'une documentation complète, d'exemples numériques et de cours destinés aux
+ingénieurs, enseignants, étudiants et professionnels de la géodesie.
 
 </p>
 
@@ -128,118 +95,182 @@ Helmert • Molodensky • Molodensky-Badekas • UTM • Lambert • Bonne • 
 
 </section>
 
-<footer>
+<!-- ===================================================== -->
+<!-- MODULES -->
+<!-- ===================================================== -->
 
-© 2026 GEO_TRANS - Développé par Habib Taibi
 <section>
 
-<h2 style="margin-top:50px;color:#004c99;">Nos modules</h2>
+<h2 style="text-align:center;color:#004c99;">Modules GEO_TRANS</h2>
 
 <div class="cards">
 
 <div class="card">
+
 <h3>🛰 Helmert 7 paramètres</h3>
-<p>Transformation de coordonnées cartésiennes 3D entre deux systèmes géodésiques.</p>
-<button>Ouvrir</button>
+
+<p>Transformation cartésienne 3D entre deux systèmes géodésiques.</p>
+
+<button>Découvrir</button>
+
 </div>
 
 <div class="card">
+
 <h3>🌍 Molodensky</h3>
-<p>Transformation directe de coordonnées géographiques entre deux ellipsoïdes.</p>
-<button>Ouvrir</button>
+
+<p>Transformation géographique entre deux ellipsoïdes.</p>
+
+<button>Découvrir</button>
+
 </div>
 
 <div class="card">
+
+<h3>📍 Molodensky-Badekas</h3>
+
+<p>Transformation à 10 paramètres avec point central.</p>
+
+<button>Découvrir</button>
+
+</div>
+
+<div class="card">
+
 <h3>📐 Projection UTM</h3>
-<p>Conversion des coordonnées géographiques vers les coordonnées planes UTM.</p>
-<button>Ouvrir</button>
+
+<p>Conversion Géographique ↔ UTM.</p>
+
+<button>Découvrir</button>
+
 </div>
 
 <div class="card">
+
 <h3>🗺 Projection Lambert</h3>
-<p>Projection conique conforme utilisée pour la cartographie.</p>
-<button>Ouvrir</button>
+
+<p>Projection conforme de Lambert.</p>
+
+<button>Découvrir</button>
+
 </div>
 
 <div class="card">
-<h3>📍 XYZ ⇄ Géographique</h3>
-<p>Conversion entre coordonnées géocentriques et géographiques.</p>
-<button>Ouvrir</button>
-</div>
 
-<div class="card">
 <h3>📏 Vincenty</h3>
-<p>Calcul des problèmes géodésiques direct et inverse sur l'ellipsoïde.</p>
-<button>Ouvrir</button>
+
+<p>Problèmes géodésiques direct et inverse.</p>
+
+<button>Découvrir</button>
+
+</div>
+
+<div class="card">
+
+<h3>🌐 XYZ ↔ Géographique</h3>
+
+<p>Conversion entre coordonnées géocentriques et géographiques.</p>
+
+<button>Découvrir</button>
+
+</div>
+
+<div class="card">
+
+<h3>🧭 Projection de Bonne</h3>
+
+<p>Projection pseudo-conique équivalente.</p>
+
+<button>Découvrir</button>
+
 </div>
 
 </div>
 
 </section>
-    .cards{
 
-display:grid;
+<!-- ===================================================== -->
+<!-- ACTUALITES -->
+<!-- ===================================================== -->
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+<section>
 
-gap:25px;
+<div class="box">
 
-margin-top:40px;
+<h2>Actualités GEO_TRANS</h2>
 
-}
+<p>✔ Développement de la bibliothèque GNU Octave.</p>
 
-.card{
+<p>✔ Documentation scientifique complète.</p>
 
-background:white;
+<p>✔ Exemples numériques détaillés.</p>
 
-padding:25px;
+<p>✔ Support WGS84 - Clarke 1880 - North Sahara.</p>
 
-border-radius:15px;
+<p>✔ Nouveaux modules ajoutés régulièrement.</p>
 
-box-shadow:0 6px 18px rgba(0,0,0,0.15);
+</div>
 
-transition:0.3s;
+</section>
 
-}
+<!-- ===================================================== -->
+<!-- OBJECTIFS -->
+<!-- ===================================================== -->
 
-.card:hover{
+<section>
 
-transform:translateY(-8px);
+<div class="box">
 
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+<h2>Objectifs du projet</h2>
 
-}
+<p>
 
-.card h3{
+Offrir une plateforme francophone moderne consacrée à la géodésie mathématique,
+aux systèmes de référence, aux transformations de coordonnées,
+aux projections cartographiques et au traitement des données GNSS.
 
-color:#004c99;
+</p>
 
-}
+</div>
 
-.card button{
+</section>
 
-background:#0066cc;
+<!-- ===================================================== -->
+<!-- PIED DE PAGE -->
+<!-- ===================================================== -->
 
-color:white;
+<footer>
 
-border:none;
+<h3>GEO_TRANS</h3>
 
-padding:12px 24px;
+<p>
 
-border-radius:8px;
+Plateforme scientifique dédiée à la géodésie et aux transformations de coordonnées.
 
-cursor:pointer;
+</p>
 
-font-size:16px;
+<hr style="margin:20px;">
 
-}
+<p>
 
-.card button:hover{
+Développé par <strong>Hebib Taibi</strong><br>
 
-background:#003366;
+ENSGTS<br>
 
-}
+École Nationale Supérieure des Sciences Géodésiques
+et des Techniques Spatiales - hebib.taibi@ensgts.dz
+
+</p>
+
+<p>
+
+© 2026 GEO_TRANS - Tous droits réservés.
+
+</p>
+
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
