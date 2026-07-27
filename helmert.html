@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <title>GEO_TRANS - Helmert 7 paramètres</title>
 
@@ -25,12 +26,53 @@ border-radius:10px;
 box-shadow:0 0 10px #ccc;
 }
 
+.zone{
+display:flex;
+justify-content:space-around;
+margin:20px;
+}
+
 button{
-background:#004c99;
-color:white;
-padding:10px 20px;
+padding:12px 20px;
 border:none;
-border-radius:5px;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.calcul{
+background:#0066cc;
+}
+
+.trans{
+background:#1ca64c;
+}
+
+.download{
+background:#0099ff;
+}
+
+.clear{
+background:#d92626;
+}
+
+table{
+width:100%;
+margin-top:25px;
+border-collapse:collapse;
+}
+
+td{
+border:1px solid #ddd;
+padding:12px;
+}
+
+.param{
+background:#07549c;
+color:white;
+font-weight:bold;
+text-align:center;
 }
 
 </style>
@@ -40,35 +82,126 @@ border-radius:5px;
 
 <body>
 
-<h1>Transformation de Helmert à 7 paramètres</h1>
-
 
 <div class="card">
 
-<h2>Principe</h2>
-
-<p>
-La transformation de Helmert permet le passage entre deux systèmes
-géodésiques par une translation, trois rotations et un facteur d'échelle.
-</p>
+<h1>🛰 Transformation de Helmert à 7 paramètres</h1>
 
 
-<h2>Paramètres recherchés</h2>
+<div class="zone">
 
-<ul>
-<li>TX, TY, TZ : translations (m)</li>
-<li>RX, RY, RZ : rotations (secondes d'arc)</li>
-<li>m : facteur d'échelle (ppm)</li>
-</ul>
+<div>
+<p>Fichier des points communs</p>
+<input type="file" id="calage">
+</div>
 
 
-<button>
-Calcul prochainement disponible
+<div>
+<p>Fichier des points à transformer</p>
+<input type="file" id="points">
+</div>
+
+
+</div>
+
+
+
+<div class="zone">
+
+<button class="calcul">
+Calculer les paramètres
+</button>
+
+<button class="trans">
+Transformer les points
+</button>
+
+<button class="download">
+Télécharger les résultats
+</button>
+
+<button class="clear">
+Effacer
 </button>
 
 
 </div>
 
 
+
+<h2>Paramètres calculés</h2>
+
+
+<table>
+
+<tr>
+<td class="param">Tx (m)</td>
+<td id="tx"></td>
+</tr>
+
+<tr>
+<td class="param">Ty (m)</td>
+<td id="ty"></td>
+</tr>
+
+<tr>
+<td class="param">Tz (m)</td>
+<td id="tz"></td>
+</tr>
+
+<tr>
+<td class="param">Rx (")</td>
+<td id="rx"></td>
+</tr>
+
+<tr>
+<td class="param">Ry (")</td>
+<td id="ry"></td>
+</tr>
+
+<tr>
+<td class="param">Rz (")</td>
+<td id="rz"></td>
+</tr>
+
+<tr>
+<td class="param">m (ppm)</td>
+<td id="ppm"></td>
+</tr>
+
+
+</table>
+
+
+</div>
+
+
+<script>
+
+
+document.querySelector(".calcul").onclick=function(){
+
+/*
+Le moteur Helmert sera ajouté ici
+*/
+
+alert("Module de calcul Helmert prêt pour intégration");
+
+
+}
+
+
+
+document.querySelector(".clear").onclick=function(){
+
+document.querySelectorAll("td").forEach(e=>e.innerHTML="");
+
+}
+
+
+</script>
+
+
 </body>
+
 </html>
