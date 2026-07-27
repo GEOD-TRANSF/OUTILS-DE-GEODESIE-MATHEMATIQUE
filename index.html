@@ -271,6 +271,90 @@ et des Techniques Spatiales - hebib.taibi@ensgts.dz
 </footer>
 
 <script src="script.js"></script>
+  <section class="module">
+
+<h2>🛰 Transformation de Helmert à 7 paramètres</h2>
+
+<div class="form-container">
+
+<div class="input-box">
+<label>Fichier des points communs</label>
+<input type="file" id="pts_calage">
+</div>
+
+<div class="input-box">
+<label>Fichier des points à transformer</label>
+<input type="file" id="pts_transfo">
+</div>
+
+<div class="buttons">
+
+<button class="btn-primary">
+Calculer les paramètres
+</button>
+
+<button class="btn-success">
+Transformer les points
+</button>
+
+<button class="btn-info">
+Télécharger les résultats
+</button>
+
+<button class="btn-danger">
+Effacer
+</button>
+
+</div>
+
+</div>
+
+<div id="resultats">
+
+<h3>Paramètres calculés</h3>
+
+<table>
+
+<tr>
+<th>Tx (m)</th>
+<td id="Tx"></td>
+</tr>
+
+<tr>
+<th>Ty (m)</th>
+<td id="Ty"></td>
+</tr>
+
+<tr>
+<th>Tz (m)</th>
+<td id="Tz"></td>
+</tr>
+
+<tr>
+<th>Rx (")</th>
+<td id="Rx"></td>
+</tr>
+
+<tr>
+<th>Ry (")</th>
+<td id="Ry"></td>
+</tr>
+
+<tr>
+<th>Rz (")</th>
+<td id="Rz"></td>
+</tr>
+
+<tr>
+<th>Échelle (ppm)</th>
+<td id="Scale"></td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
 
 </body>
 </html>
