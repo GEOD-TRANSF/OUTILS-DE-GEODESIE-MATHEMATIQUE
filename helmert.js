@@ -1,118 +1,106 @@
-// ==========================================
-// GEO_TRANS - Module Helmert 7 paramètres
-// ==========================================
+/*****************************************************************
+ GEO_TRANS
+ Calcul Helmert 7 paramètres
+ Version 1.0
+******************************************************************/
 
-function helmert7(X,Y,Z,TX,TY,TZ,RX,RY,RZ,m){
+//------------------------------------------------------------
+// Lecture d'un fichier texte
+//------------------------------------------------------------
 
-    // Conversion secondes d'arc → radians
-    let secToRad = Math.PI/(180*3600);
+function lireFichier(event){
 
-    let rx = RX * secToRad;
-    let ry = RY * secToRad;
-    let rz = RZ * secToRad;
+const fichier = event.target.files[0];
 
-    // facteur d'échelle
-    let k = 1 + m*1e-6;
+if(!fichier) return;
 
-    // Matrice de rotation (petits angles)
-    let X2 = TX + k*(X - rz*Y + ry*Z);
-    let Y2 = TY + k*(rz*X + Y - rx*Z);
-    let Z2 = TZ + k*(-ry*X + rx*Y + Z);
+const reader = new FileReader();
 
-    return [X2,Y2,Z2];
+reader.onload=function(e){
+
+const lignes=e.target.result.trim().split(/\r?\n/);
+
+let source=[];
+let cible=[];
+
+for(let i=0;i<lignes.length;i++){
+
+let c=lignes[i].trim().split(/[\s,;]+/);
+
+if(c.length<6) continue;
+
+source.push([
+parseFloat(c[0]),
+parseFloat(c[1]),
+parseFloat(c[2])
+]);
+
+cible.push([
+parseFloat(c[3]),
+parseFloat(c[4]),
+parseFloat(c[5])
+]);
+
 }
-// =============================================
-// GEO_TRANS - Calcul Helmert 7 paramètres
-// Méthode des moindres carrés
-// =============================================
 
-function calculHelmert(points){
-
-let A = [];
-let L = [];
-
-
-points.forEach(p => {
-
-let X = p.X1;
-let Y = p.Y1;
-let Z = p.Z1;
-
-let dX = p.X2 - p.X1;
-let dY = p.Y2 - p.Y1;
-let dZ = p.Z2 - p.Z1;
-
-
-// Equation X
-A.push([
-1,0,0,
-0,Z,-Y,
-X
-]);
-
-L.push(dX);
-
-
-// Equation Y
-A.push([
-0,1,0,
--Z,0,X,
-Y
-]);
-
-L.push(dY);
-
-
-// Equation Z
-A.push([
-0,0,1,
-Y,-X,0,
-Z
-]);
-
-L.push(dZ);
-
-});
-
-
-// Calcul AT*A
-let N = math.multiply(
-math.transpose(A),
-A
-);
-
-
-// Calcul AT*L
-let C = math.multiply(
-math.transpose(A),
-L
-);
-
-
-// Résolution
-let param = math.multiply(
-math.inv(N),
-C
-);
-
-
-// Conversion rotations radian → seconde d'arc
-
-let sec = 180*3600/Math.PI;
-
-
-return {
-
-TX:param[0],
-TY:param[1],
-TZ:param[2],
-
-RX:param[3]*sec,
-RY:param[4]*sec,
-RZ:param[5]*sec,
-
-m:param[6]*1000000
+calculHelmert(source,cible);
 
 };
+
+reader.readAsText(fichier);
+
+}
+//------------------------------------------------------------
+
+function centroide(tab){
+
+let x=0;
+let y=0;
+let z=0;
+
+for(let p of tab){
+
+x+=p[0];
+y+=p[1];
+z+=p[2];
+
+}
+
+return[
+x/tab.length,
+y/tab.length,
+z/tab.length
+];
+
+}
+//------------------------------------------------------------
+
+function calculTranslation(Cs,Ct){
+
+return{
+
+Tx:Ct[0]-Cs[0],
+Ty:Ct[1]-Cs[1],
+Tz:Ct[2]-Cs[2]
+
+};
+
+}
+//------------------------------------------------------------
+
+function calculHelmert(source,cible){
+
+let Cs=centroide(source);
+let Ct=centroide(cible);
+
+let T=calculTranslation(Cs,Ct);
+
+document.getElementById("tx").innerHTML=T.Tx.toFixed(4);
+
+document.getElementById("ty").innerHTML=T.Ty.toFixed(4);
+
+document.getElementById("tz").innerHTML=T.Tz.toFixed(4);
+
+console.log(T);
 
 }
