@@ -28,15 +28,21 @@ function lireFichier(file, type) {
 
             if(valeurs.length >= 4){
 
-                points.push({
+points.push({
 
-                    id: valeurs[0],
-                    X: parseFloat(valeurs[1]),
-                    Y: parseFloat(valeurs[2]),
-                    Z: parseFloat(valeurs[3])
+    id: valeurs[0],
 
-                });
+    // Système source
+    X: parseFloat(valeurs[1]),
+    Y: parseFloat(valeurs[2]),
+    Z: parseFloat(valeurs[3]),
 
+    // Système cible
+    Xc: parseFloat(valeurs[4]),
+    Yc: parseFloat(valeurs[5]),
+    Zc: parseFloat(valeurs[6])
+
+});
             }
 
         });
