@@ -232,6 +232,16 @@ document.getElementById("Scale").innerHTML =
 (P[6][0]*1000000)
 .toFixed(4);
 
+console.log("Paramètres Helmert :");
 
+console.log("Tx =",P[0][0]);
+console.log("Ty =",P[1][0]);
+console.log("Tz =",P[2][0]);
+
+console.log("Rx =",P[3][0]*206264.806);
+console.log("Ry =",P[4][0]*206264.806);
+console.log("Rz =",P[5][0]*206264.806);
+
+console.log("Echelle ppm =",P[6][0]*1000000);
 
 }
