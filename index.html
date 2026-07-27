@@ -131,7 +131,114 @@ Helmert • Molodensky • Molodensky-Badekas • UTM • Lambert • Bonne • 
 <footer>
 
 © 2026 GEO_TRANS - Développé par Habib Taibi
+<section>
 
+<h2 style="margin-top:50px;color:#004c99;">Nos modules</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🛰 Helmert 7 paramètres</h3>
+<p>Transformation de coordonnées cartésiennes 3D entre deux systèmes géodésiques.</p>
+<button>Ouvrir</button>
+</div>
+
+<div class="card">
+<h3>🌍 Molodensky</h3>
+<p>Transformation directe de coordonnées géographiques entre deux ellipsoïdes.</p>
+<button>Ouvrir</button>
+</div>
+
+<div class="card">
+<h3>📐 Projection UTM</h3>
+<p>Conversion des coordonnées géographiques vers les coordonnées planes UTM.</p>
+<button>Ouvrir</button>
+</div>
+
+<div class="card">
+<h3>🗺 Projection Lambert</h3>
+<p>Projection conique conforme utilisée pour la cartographie.</p>
+<button>Ouvrir</button>
+</div>
+
+<div class="card">
+<h3>📍 XYZ ⇄ Géographique</h3>
+<p>Conversion entre coordonnées géocentriques et géographiques.</p>
+<button>Ouvrir</button>
+</div>
+
+<div class="card">
+<h3>📏 Vincenty</h3>
+<p>Calcul des problèmes géodésiques direct et inverse sur l'ellipsoïde.</p>
+<button>Ouvrir</button>
+</div>
+
+</div>
+
+</section>
+    .cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+
+}
+
+.card h3{
+
+color:#004c99;
+
+}
+
+.card button{
+
+background:#0066cc;
+
+color:white;
+
+border:none;
+
+padding:12px 24px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-size:16px;
+
+}
+
+.card button:hover{
+
+background:#003366;
+
+}
 </footer>
 
 </body>
