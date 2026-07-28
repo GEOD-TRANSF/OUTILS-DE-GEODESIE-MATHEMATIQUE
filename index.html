@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-<input type="file" onchange="lireFichier(event)">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,9 +11,7 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.js"></script>
 
-<script src="js/script.js"></script>
 
 <body>
 
@@ -107,7 +105,9 @@ ingénieurs, enseignants, étudiants et professionnels de la géodesie.
 <h2 style="text-align:center;color:#004c99;">Modules GEO_TRANS</h2>
 
 <div class="cards">
-  <div class="card">
+
+
+<div class="card">
 
 <h3>🛰 Helmert 7 paramètres</h3>
 
@@ -115,21 +115,9 @@ ingénieurs, enseignants, étudiants et professionnels de la géodesie.
 Transformation cartésienne 3D entre deux systèmes géodésiques.
 </p>
 
-<button onclick="ouvrirHelmert()">
-Calculer
-</button>
-
-</div>
-
-<div class="card">
-
 <a href="helmert.html">
 <button>Découvrir</button>
 </a>
-
-<p>Transformation cartésienne 3D entre deux systèmes géodésiques.</p>
-
-<button>Découvrir</button>
 
 </div>
 
@@ -256,291 +244,38 @@ aux projections cartographiques et au traitement des données GNSS.
 <!-- ===================================================== -->
 <!-- PIED DE PAGE -->
 <!-- ===================================================== -->
-
 <footer>
 
 <h3>GEO_TRANS</h3>
 
 <p>
-
 Plateforme scientifique dédiée à la géodésie et aux transformations de coordonnées.
-
 </p>
 
 <hr style="margin:20px;">
 
 <p>
-
 Développé par <strong>Hebib Taibi</strong><br>
 
 ENSGTS<br>
 
 École Nationale Supérieure des Sciences Géodésiques
-et des Techniques Spatiales - hebib.taibi@ensgts.dz
+et des Techniques Spatiales<br>
 
+hebib.taibi@ensgts.dz
 </p>
 
 <p>
-
 © 2026 GEO_TRANS - Tous droits réservés.
-
 </p>
 
 </footer>
 
-<script src="script.js"></script>
-  <section class="module">
 
-<h2>🛰 Transformation de Helmert à 7 paramètres</h2>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.js"></script>
 
-<div class="form-container">
+<script src="js/script.js"></script>
 
-<div class="input-box">
-<label>Fichier des points communs</label>
-<input type="file" id="pts_calage">
-</div>
-
-<div class="input-box">
-<label>Fichier des points à transformer</label>
-<input type="file" id="pts_transfo">
-</div>
-
-<div class="buttons">
-
-<button id="calculerHelmert" class="btn-primary">
-Calculer les paramètres
-</button>
-
-<button id="transformerHelmert" class="btn-success">
-Transformer les points
-</button>
-
-<button class="btn-info">
-Télécharger les résultats
-</button>
-
-<button class="btn-danger">
-Effacer
-</button>
-
-</div>
-
-</div>
-
-<div id="resultats">
-
-<h3>Paramètres calculés</h3>
-
-<table>
-
-<tr>
-<th>Tx (m)</th>
-<td id="Tx"></td>
-</tr>
-
-<tr>
-<th>Ty (m)</th>
-<td id="Ty"></td>
-</tr>
-
-<tr>
-<th>Tz (m)</th>
-<td id="Tz"></td>
-</tr>
-
-<tr>
-<th>Rx (")</th>
-<td id="Rx"></td>
-</tr>
-
-<tr>
-<th>Ry (")</th>
-<td id="Ry"></td>
-</tr>
-
-<tr>
-<th>Rz (")</th>
-<td id="Rz"></td>
-</tr>
-
-<tr>
-<th>Échelle (ppm)</th>
-<td id="Scale"></td>
-</tr>
-
-</table>
-
-</div>
-
-</section>
-<script>
-
-function calculHelmert(){
-
-let lignes=document
-.getElementById("donneesHelmert")
-.value.trim()
-.split("\n");
-
-
-let A=[];
-let B=[];
-
-
-for(let i=0;i<lignes.length;i++){
-
-let v=lignes[i]
-.trim()
-.split(/\s+/)
-.map(Number);
-
-
-A.push([v[0],v[1],v[2]]);
-B.push([v[3],v[4],v[5]]);
-
-}
-
-
-// Calcul des différences moyennes
-let dX=0;
-let dY=0;
-let dZ=0;
-
-
-for(let i=0;i<A.length;i++){
-
-dX+=B[i][0]-A[i][0];
-dY+=B[i][1]-A[i][1];
-dZ+=B[i][2]-A[i][2];
-
-}
-
-
-dX/=A.length;
-dY/=A.length;
-dZ/=A.length;
-
-
-// Affichage provisoire
-// (la version suivante intégrera la résolution LS complète)
-
-let txt="PARAMETRES HELMERT 7\n";
-txt+="======================\n\n";
-
-txt+="TX = "+dX.toFixed(4)+" m\n";
-txt+="TY = "+dY.toFixed(4)+" m\n";
-txt+="TZ = "+dZ.toFixed(4)+" m\n\n";
-
-txt+="RX = calcul en cours\n";
-txt+="RY = calcul en cours\n";
-txt+="RZ = calcul en cours\n";
-txt+="m  = calcul en cours\n";
-
-
-document
-.getElementById("resultatHelmert")
-.innerHTML=txt;
-
-}
-
-</script>
 </body>
+
 </html>
-<section class="card">
-
-<h2 style="text-align:center;color:#004c99;">
-🛰 Calcul Transformation Helmert 7 paramètres
-</h2>
-
-<p>
-Entrer les coordonnées cartésiennes XYZ des points homologues.
-<br>
-Format : X Y Z Source → X Y Z Cible
-</p>
-
-<textarea id="donneesHelmert" rows="8" style="width:100%;">
-5182635 -74635 3704439 5182693 -74616 3704215
-5185237 -69654 3700921 5185295 -69635 3700696
-5181213 -49355 3706836 5181272 -49336 3706611
-</textarea>
-
-<br><br>
-
-<button onclick="calculHelmert()">
-Calculer les paramètres
-</button>
-
-<h3>Résultats :</h3>
-
-<pre id="resultatHelmert"></pre>
-
-</section>
-<section class="card">
-
-<h2 style="text-align:center;color:#004c99;">
-🛰 Calcul Transformation Helmert 7 paramètres
-</h2>
-
-<p>
-Entrer les coordonnées cartésiennes XYZ des points homologues.
-</p>
-
-<textarea id="donneesHelmert" rows="8" style="width:100%;">
-5182635 -74635 3704439 5182693 -74616 3704215
-5185237 -69654 3700921 5185295 -69635 3700696
-5181213 -49355 3706836 5181272 -49336 3706611
-</textarea>
-
-<br><br>
-
-<button onclick="calculHelmert()">
-Calculer les paramètres
-</button>
-
-<h3>Résultats :</h3>
-
-<pre id="resultatHelmert"></pre>
-
-</section>
-
-<section class="card">
-
-<h2 style="text-align:center;color:#004c99;">
-🛰 Helmert 7 paramètres - Calculateur
-</h2>
-
-<p>
-Coordonnées cartésiennes géocentriques :
-<br>
-X Y Z Source     |     X Y Z Cible
-</p>
-
-<textarea id="donneesHelmert" rows="8" style="width:100%;">
-5182635 -74635 3704439 5182693 -74616 3704215
-5185237 -69654 3700921 5185295 -69635 3700696
-5181213 -49355 3706836 5181272 -49336 3706611
-</textarea>
-
-<br><br>
-
-<button onclick="calculHelmert()">
-Calculer Helmert
-</button>
-
-<h3>Résultats</h3>
-
-<pre id="resultatHelmert"></pre>
-
-</section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
-<script src="helmert.js"></script>
-</body>
-</html>
-<h3>Résultats</h3>
-
-<p>Tx : <span id="tx">0</span> m</p>
-
-<p>Ty : <span id="ty">0</span> m</p>
-
-<p>Tz : <span id="tz">0</span> m</p>
-<script src="helmert.js"></script>
